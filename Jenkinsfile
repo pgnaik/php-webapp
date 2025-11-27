@@ -36,8 +36,10 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'DOCKERHUB_CRED',
                                                      usernameVariable: 'USER',
                                                      passwordVariable: 'PASS')]) {
-                        bat "echo $PASS | docker login -u $USER --password-stdin"
-                        bat "docker push ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                        bat '''
+                          echo %PASS% | docker login -u %USER% --password-stdin
+                          docker push %DOCKER_IMAGE%:%DOCKER_TAG%
+                        '''
                     }
                 }
             }
