@@ -47,10 +47,10 @@ pipeline {
             steps {
                 script {
                     // Stop and remove existing container if running
-                    sh "docker rm -f php-webapp || true"
+                    bat "docker rm -f php-webapp || true"
 
                     // Run new container
-                    sh "docker run -d --name php-webapp -p 80:80 ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                    bat "docker run -d --name php-webapp -p 80:80 ${DOCKER_IMAGE}:${DOCKER_TAG}"
                 }
             }
         }
