@@ -18,7 +18,7 @@ pipeline {
         stage('PHP Syntax Check') {
             steps {
                 // Basic syntax check for PHP files
-                bat 'php -l src/api.php'
+                bat 'C:\\xampp\\php\\php.exe -l src/api.php'
             }
         }
 
